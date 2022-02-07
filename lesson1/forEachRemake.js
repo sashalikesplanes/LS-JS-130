@@ -1,7 +1,7 @@
-function forEach(arr, callbackfn, context) {
-  const length = arr.length;
-  for (let i = 0; i < length; i++) {
-    callbackfn.call(context, arr[i]);
+function forEach(array, callbackfn, context) {
+  const length = array.length;
+  for (let index = 0; index < length; index++) {
+    callbackfn.call(context, array[index], index, array);
   }
 }
 
@@ -12,7 +12,7 @@ arr.forEach((value) => console.log(value * value));
 
 // Our forEach function
 forEach(arr, (value) => console.log(value * value));
-
+console.log();
 class Foo {
   constructor(prefix) {
     this.prefix = prefix;
@@ -30,3 +30,10 @@ let foo = new Foo("Item: ");
 forEach(["a", "b", "c"], (item) => console.log(item));
 forEach([1, 2, 3], foo.showItem, foo);
 // forEach([4, 5, 6], foo.showItem);
+console.log();
+
+forEach(["a", "b", "c"], function (value, index, arr) {
+  console.log(`After ${value} comes ${arr[index + 1]}`);
+});
+
+console.log();
