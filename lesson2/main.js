@@ -1,2 +1,4 @@
-const logIt = require("./logit");
-logIt("You Rock!");
+const { logIt, setPrefix } = require("./logit");
+logIt("You rock!");
+setPrefix("++ ");
+logIt("Hello");
