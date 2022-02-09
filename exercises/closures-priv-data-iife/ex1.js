@@ -1,8 +1,8 @@
 "use strict";
 
-function myBind(func, context) {
+function myBind(func, context, ...argsInitial) {
   return (...args) => {
-    return func.call(context, ...args);
+    return func.call(context, ...argsInitial, ...args);
   };
 }
 
@@ -16,8 +16,24 @@ const obj = {
   },
 };
 
-const funcBoundOnObj = myBind(function (arg1, arg2) {
-  return this[arg1]() + this[arg2];
-}, obj);
+const funcBoundOnObj = myBind(
+  function (arg1, arg2, arg3, arg4) {
+    console.log(this[arg1]);
+    console.log(this[arg2]);
+    console.log(this[arg3]);
+    console.log(this[arg4]);
+  },
+  obj,
+  "d",
+  "a"
+);
 
-console.log(funcBoundOnObj("d", "b"));
+funcBoundOnObj("b", "c");
+
+function addNumbers(a, b) {
+  return a + b;
+}
+
+let addFive = myBind(addNumbers, null, 5);
+
+console.log(addFive(10)); // 15
