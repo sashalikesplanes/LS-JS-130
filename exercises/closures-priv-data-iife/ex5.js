@@ -16,9 +16,7 @@ const Account = (function () {
     else return String.fromCharCode(randomSeed - 10 + "a".charCodeAt());
   }
 
-  function isPasswordValid(password) {}
-
-  function checkPassword(password, callback) {
+  function executeIfPasswordValid(password, callback) {
     if (password === userPassword) {
       return callback();
     } else {
@@ -39,29 +37,29 @@ const Account = (function () {
     },
 
     reanonymize(password) {
-      return checkPassword(
+      return executeIfPasswordValid(
         password,
         () => !!(this.displayName = getRandomName())
       );
     },
 
     resetPassword(oldPassword, newPassword) {
-      return checkPassword(oldPassword, () => {
+      return executeIfPasswordValid(oldPassword, () => {
         userPassword = newPassword;
         return true;
       });
     },
 
     firstName(password) {
-      return checkPassword(password, () => userFirstName);
+      return executeIfPasswordValid(password, () => userFirstName);
     },
 
     lastName(password) {
-      return checkPassword(password, () => userLastName);
+      return executeIfPasswordValid(password, () => userLastName);
     },
 
     email(password) {
-      return checkPassword(password, () => userEmail);
+      return executeIfPasswordValid(password, () => userEmail);
     },
   };
 })();
