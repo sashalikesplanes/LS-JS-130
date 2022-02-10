@@ -1,8 +1,13 @@
 const Car = require("./car");
 
 describe("The Car class", () => {
-  let car = new Car();
-  let car2 = new Car();
+  let car;
+  let car2;
+  beforeEach(() => {
+    car = new Car();
+    car2 = new Car();
+  });
+
   test("has four wheels", () => {
     expect(car.wheels).toBe(4);
   });
@@ -38,6 +43,7 @@ describe("The Car class", () => {
   });
 
   test("a method which throws an exception", () => {
+    // .toThrow automatically calls function passed to expect
     expect(() => car.fly()).toThrow();
   });
 });
