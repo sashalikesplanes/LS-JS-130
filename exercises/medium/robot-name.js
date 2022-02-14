@@ -3,11 +3,11 @@ class Robot {
   static VALID_LETTERS = "ABCDEFGHIJKLMNPQRSTUVWXYZ";
   static VALID_NUMBERS = "0123456789";
   constructor() {
-    this.name = Robot.getUniqueName();
+    this.ownName = Robot.getUniqueName();
   }
 
   name() {
-    return this.name;
+    return this.ownName;
   }
 
   static getUniqueName() {
@@ -15,6 +15,7 @@ class Robot {
     while (Robot.usedNames.includes(uniqueName)) {
       uniqueName = Robot.getRandomName();
     }
+    Robot.usedNames.push(uniqueName);
     return uniqueName;
   }
 
