@@ -207,25 +207,25 @@ describe("CustomSet", () => {
   });
 
   describe("union: returns a set of all elements in either set", () => {
-    xtest("union of empty sets is an empty set", () => {
+    test("union of empty sets is an empty set", () => {
       const actual = new CustomSet().union(new CustomSet());
       const expected = new CustomSet();
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("union of an empty set and non-empty set is the non-empty set", () => {
+    test("union of an empty set and non-empty set is the non-empty set", () => {
       const actual = new CustomSet().union(new CustomSet([2]));
       const expected = new CustomSet([2]);
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("union of a non-empty set and empty set is the non-empty set", () => {
+    test("union of a non-empty set and empty set is the non-empty set", () => {
       const actual = new CustomSet([1, 3]).union(new CustomSet());
       const expected = new CustomSet([1, 3]);
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("union of non-empty sets contains all unique elements", () => {
+    test("union of non-empty sets contains all unique elements", () => {
       const actual = new CustomSet([1, 3]).union(new CustomSet([2, 3]));
       const expected = new CustomSet([1, 2, 3]);
       expect(actual.isSame(expected)).toBe(true);
