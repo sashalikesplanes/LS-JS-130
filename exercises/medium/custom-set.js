@@ -19,7 +19,7 @@ class CustomSet {
     return this.elements.every((element) => set.contains(element));
   }
   isDisjoint(set) {
-    // return Bool
+    return this.elements.every((element) => !set.contains(element));
   }
   isSame(set) {
     if (this.size() !== set.size()) return false;
