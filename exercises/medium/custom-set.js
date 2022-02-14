@@ -35,10 +35,14 @@ class CustomSet {
     return this;
   }
   intersection(set) {
-    // return new CustomSet
+    return new CustomSet(
+      this.elements.filter((element) => set.contains(element))
+    );
   }
   difference(set) {
-    // return new CustomSet
+    return new CustomSet(
+      this.elements.filter((element) => !set.contains(element))
+    );
   }
   union(set) {
     // return new CustomSet
