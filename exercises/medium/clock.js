@@ -32,7 +32,17 @@ class Clock {
     }
     return this;
   }
-  subtract(minutes) {}
+  subtract(minutes) {
+    this.minutes -= minutes;
+    while (this.minutes < 0) {
+      this.minutes += Clock.MINUTES_PER_HOUR;
+      this.hours -= 1;
+    }
+    while (this.hours < 0) {
+      this.hours += Clock.HOURS_PER_DAY;
+    }
+    return this;
+  }
 }
 
 module.exports = Clock;
