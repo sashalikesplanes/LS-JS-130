@@ -51,6 +51,8 @@ class Meetup {
     // iterate from 0 to 7 increasing the day and checking if weekday matches
     for (let date = startingDate; date < startingDate + 7; date++) {
       meetupDate.setDate(date);
+      // Check if its next month, except if we started at the 1st
+      if (date !== startingDate && meetupDate.getDate() === 1) return null;
       if (meetupDate.getDay() === weekdayIdx) return meetupDate;
     }
   }
