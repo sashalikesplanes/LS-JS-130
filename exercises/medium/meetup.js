@@ -7,6 +7,7 @@ class Meetup {
   day(weekday, timing) {
     const meetupDate = new Date(this.year, this.month, 1);
     const weekdayIdx = this.getWeekdayIdx(weekday);
+    console.log(meetupDate);
     switch (timing.toLowerCase()) {
       case "first":
         return Meetup.findFirstDayStartingAt(meetupDate, 1, weekdayIdx);
@@ -47,10 +48,17 @@ class Meetup {
   }
 
   static findFirstDayStartingAt(meetupDate, startingDate, weekdayIdx) {
-    // TODO fix fifth and last
+    console.log(meetupDate);
+    if (startingDate < 1) {
+      meetupDate.setMonth(meetupDate.getMonth() + 1);
+      meetupDate.setDate(startingDate);
+      startingDate = meetupDate.getDate();
+    }
+    console.log(meetupDate);
     // iterate from 0 to 7 increasing the day and checking if weekday matches
     for (let date = startingDate; date < startingDate + 7; date++) {
       meetupDate.setDate(date);
+      console.log(meetupDate);
       // Check if its next month, except if we started at the 1st
       if (date !== startingDate && meetupDate.getDate() === 1) return null;
       if (meetupDate.getDay() === weekdayIdx) return meetupDate;
