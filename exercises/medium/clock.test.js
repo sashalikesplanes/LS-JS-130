@@ -10,7 +10,7 @@ describe("Clock", () => {
     expect(Clock.at(11, 9).toString()).toBe("11:09");
   });
 
-  xtest("add a few minutes", () => {
+  test("add a few minutes", () => {
     let clock = Clock.at(10).add(3);
     expect(clock.toString()).toBe("10:03");
   });
@@ -20,17 +20,17 @@ describe("Clock", () => {
     expect(clock.toString()).toBe("23:10");
   });
 
-  xtest("add over an hour", () => {
+  test("add over an hour", () => {
     let clock = Clock.at(10).add(61);
     expect(clock.toString()).toBe("11:01");
   });
 
-  xtest("wrap around at midnight", () => {
+  test("wrap around at midnight", () => {
     let clock = Clock.at(23, 30).add(60);
     expect(clock.toString()).toBe("00:30");
   });
 
-  xtest("add more than a day", () => {
+  test("add more than a day", () => {
     let clock = Clock.at(10).add(3061);
     expect(clock.toString()).toBe("13:01");
   });
@@ -45,7 +45,7 @@ describe("Clock", () => {
     expect(clock.toString()).toBe("08:30");
   });
 
-  xtest("equivalent clocks", () => {
+  test("equivalent clocks", () => {
     let clock1 = Clock.at(15, 37);
     let clock2 = Clock.at(15, 37);
 
@@ -62,7 +62,7 @@ describe("Clock", () => {
     expect(clock.toString()).toBe("06:59");
   });
 
-  xtest("inequivalent clocks", () => {
+  test("inequivalent clocks", () => {
     let clock1 = Clock.at(15, 37);
     let clock2 = Clock.at(15, 36);
     let clock3 = Clock.at(14, 37);
