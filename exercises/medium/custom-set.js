@@ -1,6 +1,7 @@
 class CustomSet {
   constructor(elements) {
     this.elements = [];
+    if (!Array.isArray(elements)) return this;
     elements.forEach((element) => {
       this.add(element);
     });
