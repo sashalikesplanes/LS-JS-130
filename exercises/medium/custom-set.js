@@ -45,7 +45,7 @@ class CustomSet {
     );
   }
   union(set) {
-    // return new CustomSet
+    return new CustomSet([...this.elements, ...set.elements]);
   }
 }
 
