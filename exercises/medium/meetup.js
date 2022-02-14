@@ -4,10 +4,8 @@ class Meetup {
     this.month = monthNum - 1;
   }
   day(weekday, timing) {
-    const meetupDate = new Date();
+    const meetupDate = new Date(this.year, this.month, 1);
     const weekdayIdx = getWeekdayIdx(weekday);
-    meetupDate.setFullYear(this.year);
-    meetupDate.setMonth(this.month);
     switch (timing.toLowerCase()) {
       case "first":
         return setToNthDay(meetupDate, 1, weekday);
