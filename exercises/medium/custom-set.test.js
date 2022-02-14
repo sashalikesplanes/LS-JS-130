@@ -31,36 +31,36 @@ describe("CustomSet", () => {
   });
 
   describe("subset: a set is a subset if all of its elements are contained in the other set", () => {
-    xtest("empty set is a subset of another empty set", () => {
+    test("empty set is a subset of another empty set", () => {
       const actual = new CustomSet().isSubset(new CustomSet());
       expect(actual).toBe(true);
     });
 
-    xtest("empty set is a subset of non-empty set", () => {
+    test("empty set is a subset of non-empty set", () => {
       const actual = new CustomSet().isSubset(new CustomSet([1]));
       expect(actual).toBe(true);
     });
 
-    xtest("non-empty set is not a subset of empty set", () => {
+    test("non-empty set is not a subset of empty set", () => {
       const actual = new CustomSet([1]).isSubset(new CustomSet());
       expect(actual).toBe(false);
     });
 
-    xtest("set is a subset of set with exact same elements", () => {
+    test("set is a subset of set with exact same elements", () => {
       const actual = new CustomSet([1, 2, 3]).isSubset(
         new CustomSet([1, 2, 3])
       );
       expect(actual).toBe(true);
     });
 
-    xtest("set is a subset of larger set with same elements", () => {
+    test("set is a subset of larger set with same elements", () => {
       const actual = new CustomSet([1, 2, 3]).isSubset(
         new CustomSet([4, 1, 2, 3])
       );
       expect(actual).toBe(true);
     });
 
-    xtest("set is not a subset of set that does not contain its elements", () => {
+    test("set is not a subset of set that does not contain its elements", () => {
       const actual = new CustomSet([1, 2, 3]).isSubset(
         new CustomSet([4, 1, 3])
       );
