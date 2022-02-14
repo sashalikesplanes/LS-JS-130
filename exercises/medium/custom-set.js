@@ -1,5 +1,10 @@
 class CustomSet {
-  constructor(elements) {}
+  constructor(elements) {
+    this.elements = [];
+    elements.forEach((element) => {
+      this.add(element);
+    });
+  }
   isEmpty() {
     // return Bool
   }
@@ -16,7 +21,6 @@ class CustomSet {
     // return Bool
   }
   add(element) {
-    // TODO
     return this;
   }
   intersection(set) {
