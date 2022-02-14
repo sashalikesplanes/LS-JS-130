@@ -22,7 +22,10 @@ class CustomSet {
     // return Bool
   }
   isSame(set) {
-    // return Bool
+    if (this.size() !== set.size()) return false;
+    return this.elements.every(
+      (element, index) => element === set.elements[index]
+    );
   }
   add(element) {
     if (!this.elements.includes(element)) {
