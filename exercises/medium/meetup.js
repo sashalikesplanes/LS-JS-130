@@ -9,19 +9,19 @@ class Meetup {
     const weekdayIdx = getWeekdayIdx(weekday);
     switch (timing.toLowerCase()) {
       case "first":
-        return setToNthDay(meetupDate, 1, weekday);
+        return findFirstDayStartingAt(meetupDate, 1, weekdayIdx);
       case "second":
-        return setToNthDay(meetupDate, 2, weekday);
+        return findFirstDayStartingAt(meetupDate, 8, weekdayIdx);
       case "third":
-        return setToNthDay(meetupDate, 3, weekday);
+        return findFirstDayStartingAt(meetupDate, 15, weekdayIdx);
       case "fourth":
-        return setToNthDay(meetupDate, 4, weekday);
+        return findFirstDayStartingAt(meetupDate, 22, weekdayIdx);
       case "fifth":
-        return setToNthDay(meetupDate, 5, weekday);
+        return findFirstDayStartingAt(meetupDate, 29, weekdayIdx);
       case "last":
-        return setToLastDay(meetupDate, weekday);
+        return findFirstDayStartingAt(meetupDate, -6, weekdayIdx);
       case "teenth":
-        return setToTeenthDay(meetupDate, weekday);
+        return findFirstDayStartingAt(meetupDate, 13, weekdayIdx);
     }
     // set to correct year, start of month
     return meetupDate;
