@@ -96,27 +96,27 @@ describe("CustomSet", () => {
   });
 
   describe("isSame: sets with the same elements are equal", () => {
-    xtest("empty sets are equal", () => {
+    test("empty sets are equal", () => {
       const actual = new CustomSet().isSame(new CustomSet());
       expect(actual).toBe(true);
     });
 
-    xtest("empty set is not equal to non-empty set", () => {
+    test("empty set is not equal to non-empty set", () => {
       const actual = new CustomSet().isSame(new CustomSet([1, 2, 3]));
       expect(actual).toBe(false);
     });
 
-    xtest("non-empty set is not equal to empty set", () => {
+    test("non-empty set is not equal to empty set", () => {
       const actual = new CustomSet([1, 2, 3]).isSame(new CustomSet());
       expect(actual).toBe(false);
     });
 
-    xtest("sets with the same elements are equal", () => {
+    test("sets with the same elements are equal", () => {
       const actual = new CustomSet([1, 2]).isSame(new CustomSet([2, 1]));
       expect(actual).toBe(true);
     });
 
-    xtest("sets with different elements are not equal", () => {
+    test("sets with different elements are not equal", () => {
       const actual = new CustomSet([1, 2, 3]).isSame(new CustomSet([1, 2, 4]));
       expect(actual).toBe(false);
     });
