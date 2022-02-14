@@ -3,19 +3,31 @@ class Diamond {
     let result = "";
     const maxRowIndex = letter.charCodeAt() - "A".charCodeAt();
     for (let row = 0; row <= maxRowIndex; row++) {
-      result += " ".repeat(maxRowIndex - row);
-      result += Diamond.makeRow(row);
-      result += " ".repeat(maxRowIndex - row) + "\n";
+      result += this.makeRow(row, maxRowIndex);
+    }
+    for (let row = maxRowIndex - 1; row >= 0; row--) {
+      result += this.makeRow(row, maxRowIndex);
     }
     return result;
   }
 
-  static makeRow(index) {
-    if (index === 0) return "A";
+  static addSpacing(row, rowIdx, maxRowIndex) {
+    return (
+      " ".repeat(maxRowIndex - rowIdx) +
+      row +
+      " ".repeat(maxRowIndex - rowIdx) +
+      "\n"
+    );
+  }
+
+  static makeRow(rowIndex, maxRowIndex) {
+    let row;
+    if (rowIndex === 0) row = "A";
     else {
-      const currentLetter = String.fromCharCode("A".charCodeAt() + index);
-      return currentLetter + " ".repeat(index * 2 - 1) + currentLetter;
+      const currentLetter = String.fromCharCode("A".charCodeAt() + rowIndex);
+      row = currentLetter + " ".repeat(rowIndex * 2 - 1) + currentLetter;
     }
+    return this.addSpacing(row, rowIndex, maxRowIndex);
   }
 }
 console.log(Diamond.makeDiamond("D"));
