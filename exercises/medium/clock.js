@@ -26,6 +26,7 @@ class Clock {
     while (this.hours >= Clock.HOURS_PER_DAY) {
       this.hours -= Clock.HOURS_PER_DAY;
     }
+    return this;
   }
   subtract(minutes) {}
 }
