@@ -10,6 +10,10 @@ class Robot {
     return this.ownName;
   }
 
+  reset() {
+    this.ownName = Robot.getUniqueName();
+  }
+
   static getUniqueName() {
     let uniqueName = Robot.getRandomName();
     while (Robot.usedNames.includes(uniqueName)) {
