@@ -37,3 +37,5 @@ class CustomSet {
     // return new CustomSet
   }
 }
+
+module.exports = CustomSet;
