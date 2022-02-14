@@ -1,3 +1,4 @@
+"use strict";
 class Meetup {
   constructor(year, monthNum) {
     this.year = year;
@@ -23,7 +24,16 @@ class Meetup {
         return setToTeenthDay(meetupDate, weekday);
     }
     // set to correct year, start of month
-
     return meetupDate;
   }
+
+  static findFirstDayStartingAt(meetupDate, startingDate, weekdayIdx) {
+    // iterate from 0 to 7 increasing the day and checking if weekday matches
+    for (let date = startingDate; date < startingDate + 7; date++) {
+      meetupDate.setDate(date);
+      if (meetupDate.getDay() === weekdayIdx) return meetupDate;
+    }
+  }
 }
+
+module.exports = Meetup;
