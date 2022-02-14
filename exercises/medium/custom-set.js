@@ -6,8 +6,11 @@ class CustomSet {
       this.add(element);
     });
   }
+  size() {
+    return this.elements.length;
+  }
   isEmpty() {
-    return this.elements.length === 0;
+    return this.size() === 0;
   }
   contains(element) {
     return this.elements.includes(element);
