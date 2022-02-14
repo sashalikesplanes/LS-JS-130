@@ -8,8 +8,8 @@ class CustomSet {
   isEmpty() {
     return this.elements.length === 0;
   }
-  contains() {
-    // return Bool
+  contains(element) {
+    return this.elements.includes(element);
   }
   isSubset(set) {
     // return Bool
