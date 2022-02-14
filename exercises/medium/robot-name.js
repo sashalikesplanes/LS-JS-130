@@ -16,3 +16,5 @@ class Robot {
     return uniqueName;
   }
 }
+
+module.exports = Robot;
