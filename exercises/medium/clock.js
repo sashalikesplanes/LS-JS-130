@@ -17,6 +17,10 @@ class Clock {
     return `${hoursStr}:${minutesStr}`;
   }
 
+  isEqual(otherClock) {
+    return this.toString() === otherClock.toString();
+  }
+
   add(minutes) {
     this.minutes += minutes;
     while (this.minutes >= Clock.MINUTES_PER_HOUR) {
