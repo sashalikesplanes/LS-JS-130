@@ -21,6 +21,9 @@ class CustomSet {
     // return Bool
   }
   add(element) {
+    if (!this.elements.includes(element)) {
+      this.elements.push(element);
+    }
     return this;
   }
   intersection(set) {
