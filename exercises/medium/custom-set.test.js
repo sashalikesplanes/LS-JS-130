@@ -143,19 +143,19 @@ describe("CustomSet", () => {
   });
 
   describe("intersection: returns a set of all shared elements", () => {
-    xtest("intersection of two empty sets is an empty set", () => {
+    test("intersection of two empty sets is an empty set", () => {
       const actual = new CustomSet().intersection(new CustomSet());
       const expected = new CustomSet();
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("intersection of an empty set and non-empty set is an empty set", () => {
+    test("intersection of an empty set and non-empty set is an empty set", () => {
       const actual = new CustomSet().intersection(new CustomSet([3, 2, 5]));
       const expected = new CustomSet([]);
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("intersection of a non-empty set and an empty set is an empty set", () => {
+    test("intersection of a non-empty set and an empty set is an empty set", () => {
       const actual = new CustomSet([1, 2, 3, 4]).intersection(
         new CustomSet([])
       );
@@ -163,7 +163,7 @@ describe("CustomSet", () => {
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("intersection of two sets with no shared elements is an empty set", () => {
+    test("intersection of two sets with no shared elements is an empty set", () => {
       const actual = new CustomSet([1, 2, 3]).intersection(
         new CustomSet([4, 5, 6])
       );
@@ -171,7 +171,7 @@ describe("CustomSet", () => {
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("intersection of two sets with shared elements is a set of the shared elements", () => {
+    test("intersection of two sets with shared elements is a set of the shared elements", () => {
       const actual = new CustomSet([1, 2, 3, 4]).intersection(
         new CustomSet([3, 2, 5])
       );
@@ -181,25 +181,25 @@ describe("CustomSet", () => {
   });
 
   describe("difference of a set is a set of all elements that are only in the first set", () => {
-    xtest("difference of two empty sets is an empty set", () => {
+    test("difference of two empty sets is an empty set", () => {
       const actual = new CustomSet().difference(new CustomSet());
       const expected = new CustomSet();
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("difference of empty set and non-empty set is an empty set", () => {
+    test("difference of empty set and non-empty set is an empty set", () => {
       const actual = new CustomSet().difference(new CustomSet([3, 2, 5]));
       const expected = new CustomSet();
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("difference of a non-empty set and an empty set is the non-empty set", () => {
+    test("difference of a non-empty set and an empty set is the non-empty set", () => {
       const actual = new CustomSet([1, 2, 3, 4]).difference(new CustomSet());
       const expected = new CustomSet([1, 2, 3, 4]);
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("difference of two non-empty sets is a set of elements that are only in the first set", () => {
+    test("difference of two non-empty sets is a set of elements that are only in the first set", () => {
       const actual = new CustomSet([3, 2, 1]).difference(new CustomSet([2, 4]));
       const expected = new CustomSet([3, 1]);
       expect(actual.isSame(expected)).toBe(true);
