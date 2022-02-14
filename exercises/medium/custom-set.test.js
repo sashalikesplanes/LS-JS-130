@@ -123,19 +123,19 @@ describe("CustomSet", () => {
   });
 
   describe("add: unique elements can be added to a set", () => {
-    xtest("add to empty set", () => {
+    test("add to empty set", () => {
       const actual = new CustomSet().add(3);
       const expected = new CustomSet([3]);
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("add to non-empty set", () => {
+    test("add to non-empty set", () => {
       const actual = new CustomSet([1, 2, 4]).add(3);
       const expected = new CustomSet([1, 2, 4, 3]);
       expect(actual.isSame(expected)).toBe(true);
     });
 
-    xtest("adding an existing element does not change the set", () => {
+    test("adding an existing element does not change the set", () => {
       const actual = new CustomSet([1, 2, 3]).add(3);
       const expected = new CustomSet([1, 2, 3]);
       expect(actual.isSame(expected)).toBe(true);
