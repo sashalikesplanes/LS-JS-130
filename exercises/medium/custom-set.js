@@ -23,6 +23,7 @@ class CustomSet {
   add(element) {
     if (!this.elements.includes(element)) {
       this.elements.push(element);
+      this.elements.sort((a, b) => a - b);
     }
     return this;
   }
