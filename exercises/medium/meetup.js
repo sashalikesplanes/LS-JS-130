@@ -6,25 +6,44 @@ class Meetup {
   }
   day(weekday, timing) {
     const meetupDate = new Date(this.year, this.month, 1);
-    const weekdayIdx = getWeekdayIdx(weekday);
+    const weekdayIdx = this.getWeekdayIdx(weekday);
     switch (timing.toLowerCase()) {
       case "first":
-        return findFirstDayStartingAt(meetupDate, 1, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, 1, weekdayIdx);
       case "second":
-        return findFirstDayStartingAt(meetupDate, 8, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, 8, weekdayIdx);
       case "third":
-        return findFirstDayStartingAt(meetupDate, 15, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, 15, weekdayIdx);
       case "fourth":
-        return findFirstDayStartingAt(meetupDate, 22, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, 22, weekdayIdx);
       case "fifth":
-        return findFirstDayStartingAt(meetupDate, 29, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, 29, weekdayIdx);
       case "last":
-        return findFirstDayStartingAt(meetupDate, -6, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, -6, weekdayIdx);
       case "teenth":
-        return findFirstDayStartingAt(meetupDate, 13, weekdayIdx);
+        return Meetup.findFirstDayStartingAt(meetupDate, 13, weekdayIdx);
     }
     // set to correct year, start of month
     return meetupDate;
+  }
+
+  getWeekdayIdx(weekday) {
+    switch (weekday.toLowerCase()) {
+      case "sunday":
+        return 0;
+      case "monday":
+        return 1;
+      case "tuesday":
+        return 2;
+      case "wednesday":
+        return 3;
+      case "thursday":
+        return 4;
+      case "friday":
+        return 5;
+      case "saturday":
+        return 6;
+    }
   }
 
   static findFirstDayStartingAt(meetupDate, startingDate, weekdayIdx) {
