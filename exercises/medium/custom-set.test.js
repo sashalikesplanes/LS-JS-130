@@ -69,27 +69,27 @@ describe("CustomSet", () => {
   });
 
   describe("disjoint: sets are disjoint if they share no elements", () => {
-    xtest("the empty set is disjoint with itself", () => {
+    test("the empty set is disjoint with itself", () => {
       const actual = new CustomSet().isDisjoint(new CustomSet([]));
       expect(actual).toBe(true);
     });
 
-    xtest("empty set is disjoint with non-empty set", () => {
+    test("empty set is disjoint with non-empty set", () => {
       const actual = new CustomSet().isDisjoint(new CustomSet([1]));
       expect(actual).toBe(true);
     });
 
-    xtest("non-empty set is disjoint with empty set", () => {
+    test("non-empty set is disjoint with empty set", () => {
       const actual = new CustomSet([1]).isDisjoint(new CustomSet([]));
       expect(actual).toBe(true);
     });
 
-    xtest("sets are not disjoint if they share an element", () => {
+    test("sets are not disjoint if they share an element", () => {
       const actual = new CustomSet([1, 2]).isDisjoint(new CustomSet([2, 3]));
       expect(actual).toBe(false);
     });
 
-    xtest("sets are disjoint if they share no elements", () => {
+    test("sets are disjoint if they share no elements", () => {
       const actual = new CustomSet([1, 2]).isDisjoint(new CustomSet([3, 4]));
       expect(actual).toBe(true);
     });
