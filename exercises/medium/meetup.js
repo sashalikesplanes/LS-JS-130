@@ -28,6 +28,7 @@ class Meetup {
   }
 
   static findFirstDayStartingAt(meetupDate, startingDate, weekdayIdx) {
+    // TODO fix fifth and last
     // iterate from 0 to 7 increasing the day and checking if weekday matches
     for (let date = startingDate; date < startingDate + 7; date++) {
       meetupDate.setDate(date);
