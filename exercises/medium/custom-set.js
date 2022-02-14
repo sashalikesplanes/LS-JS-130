@@ -6,7 +6,7 @@ class CustomSet {
     });
   }
   isEmpty() {
-    // return Bool
+    return this.elements.length === 0;
   }
   contains() {
     // return Bool
